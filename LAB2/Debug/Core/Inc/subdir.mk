@@ -5,12 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Inc/LED_BLINKED.c \
 ../Core/Inc/Software_timer1.c 
 
 OBJS += \
+./Core/Inc/LED_BLINKED.o \
 ./Core/Inc/Software_timer1.o 
 
 C_DEPS += \
+./Core/Inc/LED_BLINKED.d \
 ./Core/Inc/Software_timer1.d 
 
 
