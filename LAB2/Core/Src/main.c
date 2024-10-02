@@ -19,11 +19,11 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "LED_BLINKED.h"
-#include "Software_timer.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "LED_BLINKED.h"
+#include "Software_timer.h"
 
 /* USER CODE END Includes */
 
@@ -101,10 +101,10 @@ int main(void)
 
   		 int status = 0;
   		 int timer1_flag = 1;
-  		 HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
-	     HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-	     HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-	     HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+  		 HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_RESET);
+	     HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
+	     HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, GPIO_PIN_SET);
+	     HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, GPIO_PIN_SET);
 	     display7SEG(1);
   while (1)
   {
