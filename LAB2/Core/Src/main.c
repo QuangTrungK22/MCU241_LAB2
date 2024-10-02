@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "LED_BLINKED.h"
 #include "Software_timer.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -98,9 +97,10 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-
+  	  	 setTimer2(100);
   		 int status = 0;
   		 int timer1_flag = 1;
+
   		 HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 	     HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 	     HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
@@ -108,16 +108,19 @@ int main(void)
 	     display7SEG(1);
   while (1)
   {
-	  if(timer1_flag == 1){
-
-	   update7SEG(status);
-	  		 status++;
-
-	  	 if(status > 3){
-	  		 status = 0;
-	  	 }
-		  setTimer1(50);
+	 if(timer2_flag == 1){
+		 setTimer2(100);
+		 HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 	  }
+	 if(timer1_flag == 1){
+		 update7SEG(status);
+		 status++;
+		 if(status > 3){
+			 status = 0;
+		 }
+		 setTimer1(100);
+	 }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
