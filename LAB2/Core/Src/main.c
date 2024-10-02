@@ -109,17 +109,17 @@ int main(void)
   while (1)
   {
 	  if(timer1_flag == 1){
-
+		 if(status >= 0 && status <= 3) {
 	   update7SEG(status);
 	  		 status++;
-
-	  	 if(status > 3){
+		 }
+		 else if(status > 3){
 	  		 status = 0;
 	  	 }
-		  setTimer1(50);
-	  }
-    /* USER CODE END WHILE */
 
+    /* USER CODE END WHILE */
+	  setTimer1(100);
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
