@@ -6,9 +6,10 @@
  */
 #include "Software_timer.h"
 #include "main.h"
+#include "LED_BLINKED.h"
 const int MAX_LED = 4;
 int index_led = 0;
-int led_buffer[4] = {1,2,3,4};
+int led_buffer[4]={1,2,3,4};
 int timer1_counter = 0 ;
 int timer1_flag = 0 ;
 
@@ -28,7 +29,6 @@ void timerRun(){
 void update7SEG(int index){
    			switch(index){
    			case 0:
-
    				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
    				HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
    				HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
@@ -36,7 +36,6 @@ void update7SEG(int index){
    			    display7SEG(led_buffer[0]);
    				break;
    			case 1:
-
    				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
    				HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
    				HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
@@ -45,7 +44,6 @@ void update7SEG(int index){
 
    				break;
    			case 2:
-
    				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
    				HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
    				HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, RESET);
@@ -53,7 +51,6 @@ void update7SEG(int index){
    				display7SEG(led_buffer[2]);
    				break;
    			case 3:
-
    				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
    				HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
    				HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
