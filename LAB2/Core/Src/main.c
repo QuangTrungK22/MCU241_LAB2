@@ -98,7 +98,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-
+  	  	 setTimer1(100);
   		 int status = 0;
   		 int timer1_flag = 1;
   		 HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_RESET);
@@ -116,9 +116,9 @@ int main(void)
 		 else if(status > 3){
 	  		 status = 0;
 	  	 }
-
+		 setTimer1(100);
     /* USER CODE END WHILE */
-	  setTimer1(100);
+
 	  }
     /* USER CODE BEGIN 3 */
   }
