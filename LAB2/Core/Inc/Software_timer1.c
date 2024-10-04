@@ -185,3 +185,25 @@ void update7SEG(int index){
    				break;
    			}
    		}
+void updateClockBuffer(void){
+	if(hour < 10){
+		led_buffer[0] = 0;
+		led_buffer[1] = hour;
+	}
+	if(hour >= 10){
+		led_buffer[0] = hour/10;
+		led_buffer[1] = hour - led_buffer[0]*10;
+	}
+	if(minute < 10){
+			led_buffer[2] = 0;
+			led_buffer[3] = minute;
+		}
+	if(minute >= 10){
+			led_buffer[2] = minute/10;
+			led_buffer[3] = minute - led_buffer[2]*10;
+	}
+	update7SEG(index_led++);
+	if(index_led > 3){
+		index_led = 0;
+	}
+}
