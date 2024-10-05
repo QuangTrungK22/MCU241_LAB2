@@ -97,24 +97,28 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
+  setTimer1(100);
+  updateClockBuffer();
   while (1)
   {
-	  second++;
-	 	  if (second >= 60){
-	 	   second = 0;
-	 	   minute++;
-	 	  }
-	 	  if(minute >= 60){
-	 	   minute = 0;
-	 	   hour++;
-	 	  }
-	 	  if(hour >=24){
-	 	   hour = 0;
-	 	  }
-	 	  updateClockBuffer();
-	 	  HAL_Delay(1000);
+	 if(timer1_flag == 1){
+		 setTimer1(100);
+		 HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+		 second++;
+		 if(second >= 60){
+			 second = 0;
+			 minute++;
+		 }
+		 if(minute >= 60){
+			 minute = 0;
+			 hour++;
+		 }
+		 if(hour >= 24){
+			 hour = 0;
+		 }
+		 updateClockBuffer();
 	 }
+  }
 
     /* USER CODE END WHILE */
 
