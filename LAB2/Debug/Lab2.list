@@ -753,8 +753,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  	  	 setTimer1(100);
- 80005f8:	2064      	movs	r0, #100	; 0x64
+  	  	 setTimer1(50);
+ 80005f8:	2032      	movs	r0, #50	; 0x32
  80005fa:	f7ff ff35 	bl	8000468 <setTimer1>
   		 int status = 0;
  80005fe:	2300      	movs	r3, #0
@@ -793,10 +793,10 @@ int main(void)
 		 if(status >= 0 && status <= 3) {
  800063c:	687b      	ldr	r3, [r7, #4]
  800063e:	2b00      	cmp	r3, #0
- 8000640:	db09      	blt.n	8000656 <main+0x7a>
+ 8000640:	db08      	blt.n	8000654 <main+0x78>
  8000642:	687b      	ldr	r3, [r7, #4]
  8000644:	2b03      	cmp	r3, #3
- 8000646:	dc06      	bgt.n	8000656 <main+0x7a>
+ 8000646:	dc05      	bgt.n	8000654 <main+0x78>
 	   update7SEG(status);
  8000648:	6878      	ldr	r0, [r7, #4]
  800064a:	f7ff ff3b 	bl	80004c4 <update7SEG>
@@ -804,21 +804,21 @@ int main(void)
  800064e:	687b      	ldr	r3, [r7, #4]
  8000650:	3301      	adds	r3, #1
  8000652:	607b      	str	r3, [r7, #4]
- 8000654:	e004      	b.n	8000660 <main+0x84>
 		 }
-		 else if(status > 3){
- 8000656:	687b      	ldr	r3, [r7, #4]
- 8000658:	2b03      	cmp	r3, #3
- 800065a:	dd01      	ble.n	8000660 <main+0x84>
+		 if(status > 3){
+ 8000654:	687b      	ldr	r3, [r7, #4]
+ 8000656:	2b03      	cmp	r3, #3
+ 8000658:	dd01      	ble.n	800065e <main+0x82>
 	  		 status = 0;
- 800065c:	2300      	movs	r3, #0
- 800065e:	607b      	str	r3, [r7, #4]
+ 800065a:	2300      	movs	r3, #0
+ 800065c:	607b      	str	r3, [r7, #4]
 	  	 }
-		 setTimer1(100);
- 8000660:	2064      	movs	r0, #100	; 0x64
- 8000662:	f7ff ff01 	bl	8000468 <setTimer1>
+		 setTimer1(50);
+ 800065e:	2032      	movs	r0, #50	; 0x32
+ 8000660:	f7ff ff02 	bl	8000468 <setTimer1>
 	  if(timer1_flag == 1){
- 8000666:	e7e5      	b.n	8000634 <main+0x58>
+ 8000664:	e7e6      	b.n	8000634 <main+0x58>
+ 8000666:	bf00      	nop
  8000668:	20000040 	.word	0x20000040
  800066c:	40010800 	.word	0x40010800
  8000670:	2000003c 	.word	0x2000003c
