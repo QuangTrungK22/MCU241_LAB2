@@ -1,6 +1,7 @@
-Software_timer1.c:18:6:setTimer1	16	static
-Software_timer1.c:22:6:setTimer2	16	static
-Software_timer1.c:26:6:timerRun	4	static
-Software_timer1.c:41:6:display7SEG	16	static
-Software_timer1.c:153:6:update7SEG	16	static
-Software_timer1.c:188:6:updateClockBuffer	8	static
+Software_timer1.c:21:6:setTimer0	16	static
+Software_timer1.c:26:6:setTimer1	16	static
+Software_timer1.c:30:6:setTimer2	16	static
+Software_timer1.c:34:6:timerRun	4	static
+Software_timer1.c:49:6:display7SEG	16	static
+Software_timer1.c:161:6:update7SEG	16	static
+Software_timer1.c:196:6:updateClockBuffer	8	static

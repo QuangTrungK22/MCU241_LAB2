@@ -45,7 +45,7 @@
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-int hour = 15, minute = 8, second = 50;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,23 +97,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
+  setTimer0(1000);
   while (1)
   {
-	  second++;
-	 	  if (second >= 60){
-	 	   second = 0;
-	 	   minute++;
-	 	  }
-	 	  if(minute >= 60){
-	 	   minute = 0;
-	 	   hour++;
-	 	  }
-	 	  if(hour >=24){
-	 	   hour = 0;
-	 	  }
-	 	  updateClockBuffer();
-	 	  HAL_Delay(1000);
+	  if(timer0_flag == 1) {
+	  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+	   setTimer0 (2000);
 	 }
 
     /* USER CODE END WHILE */
@@ -121,7 +110,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-
+}
 
 /**
   * @brief System Clock Configuration
