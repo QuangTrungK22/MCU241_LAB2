@@ -97,15 +97,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  	  	 setTimer1(100);
   	  	 setTimer2(100);
   		 int status = 0;
-
+  		setTimer1(100);
 
   		 HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 	     HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 	     HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 	     HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+	     HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
 	     display7SEG(1);
   while (1)
   {
@@ -119,8 +119,8 @@ int main(void)
 		 if(status > 3){
 			 status = 0;
 		 }
-		 setTimer1(100);
-		 setTimer2(100);
+		 setTimer1(50);
+
 	 }
 
     /* USER CODE END WHILE */
