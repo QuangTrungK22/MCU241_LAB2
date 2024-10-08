@@ -98,6 +98,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   setTimer1(100);
+  setTimer2(25);
   updateClockBuffer();
   while (1)
   {
@@ -116,6 +117,10 @@ int main(void)
 		 if(hour >= 24){
 			 hour = 0;
 		 }
+
+	 }
+	 if(timer2_flag == 1){
+		 setTimer2(25);
 		 updateClockBuffer();
 	 }
   }
