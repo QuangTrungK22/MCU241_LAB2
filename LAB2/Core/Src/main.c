@@ -98,7 +98,13 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   setTimer1(100);
-  updateClockBuffer();
+  setTimer2(100);
+  HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, SET);
+  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+
   while (1)
   {
 	 if(timer1_flag == 1){
@@ -116,7 +122,10 @@ int main(void)
 		 if(hour >= 24){
 			 hour = 0;
 		 }
-		 updateClockBuffer();
+	 }
+	 if(timer2_flag == 1){
+		 updateClockBuffer();\
+		 setTimer2(25);
 	 }
   }
 
