@@ -98,25 +98,33 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  	  	 setTimer1(50);
-  		 int status = 0;
+  	  	 setTimer1(100);
+  	  	 setTimer2(100);
 
-  		 HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_RESET);
-	     HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
-	     HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, GPIO_PIN_SET);
-	     HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, GPIO_PIN_SET);
-	     display7SEG(1);
+
+
   while (1)
   {
 	  if(timer1_flag == 1){
-		 if(status >= 0 && status <= 3) {
-	   update7SEG(status);
-	  		 status++;
+		 setTimer1(100);
+		 HAL_GPIO_TogglePin(DOT_GPIO_Pin, DOT_Pin);
+		 		second++;
+				 if(second >= 60){
+					 second = 0;
+					 minute++;
+				 }
+				 if(minute >= 60){
+					 minute = 0;
+					 hour++;
+				 }
+				 if(hour >= 24){
+					 hour = 0;
 		 }
-		 if(status > 3){
-	  		 status = 0;
-	  	 }
-		 setTimer1(50);
+
+	  }
+	  if(timer2_flag == 1){
+		  setTimer2(25);
+		  update
 	  }
     /* USER CODE END WHILE */
 
