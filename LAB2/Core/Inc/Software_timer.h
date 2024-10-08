@@ -10,14 +10,10 @@
 
 extern int timer1_flag;
 extern int timer2_flag;
-extern int hour;
-extern int minute;
-extern int second;
+extern int hour, minute , second;
+void updateClockBuffer(void);
 void setTimer1(int duration);
 void timerRun();
 void update7SEG(int index);
-void setTimer2(int duration);
-void display7SEG(int num);
-void updateClockBuffer(void);
+
 #endif /* INC_SOFTWARE_TIMER_H_ */
-void updateClockBuffer(void);
